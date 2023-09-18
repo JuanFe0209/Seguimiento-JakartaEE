@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherRepositoryImpl implements Repository<TeacherDto> {
+    public TeacherRepositoryImpl(SubjectRepositoryLogicImpl teacherRepository) {
+    }
+
     private Connection getConnection() throws SQLException {
         return ConexionBD.getInstance();
     }
