@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubjectRepositoryImpl implements Repository<SubjectDto> {
+    public SubjectRepositoryImpl(SubjectRepositoryLogicImpl subjectRepository) {
+    }
+
     private Connection getConnection() throws SQLException {
         return ConexionBD.getInstance();
     }

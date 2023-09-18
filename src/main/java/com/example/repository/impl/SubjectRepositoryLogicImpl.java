@@ -15,7 +15,7 @@ public class SubjectRepositoryLogicImpl implements Repository<Subject> {
         Subject s1 = new Subject(1L,"Calculus",Teacher.builder().build());
         Subject s2 = new Subject(2L,"Statistic",Teacher.builder().build());
         Subject s3 = new Subject(3L,"Data Bases",Teacher.builder().build());
-        subjects = new ArrayList<Subject>(List.of(s1, s2, s3));
+        subjects = new ArrayList<>(List.of(s1, s2, s3));
     }
 
     @Override

@@ -1,8 +1,12 @@
 package com.example.controllers;
 
 import com.example.domain.enums.Career;
+import com.example.domain.models.Teacher;
 import com.example.mapping.dtos.StudentDto;
+import com.example.mapping.dtos.SubjectDto;
 import com.example.repository.impl.StudentRepositoryLogicImpl;
+import com.example.repository.impl.SubjectRepositoryImpl;
+import com.example.repository.impl.SubjectRepositoryLogicImpl;
 import com.example.services.impl.StudentServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,12 +19,12 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "subjectController", value = "/subject-form")
 public class SubjectController extends HttpServlet {
-    private StudentRepositoryLogicImpl studentRepository;
-    private final StudentServiceImpl service;
+    private SubjectRepositoryLogicImpl subjectRepository;
+    private final SubjectRepositoryImpl service;
 
-    public StudentController() {
-        studentRepository = new StudentRepositoryLogicImpl();
-        service = new StudentServiceImpl(studentRepository);
+    public SubjectController() {
+        subjectRepository = new SubjectRepositoryLogicImpl();
+        service = new SubjectRepositoryImpl(subjectRepository);
     }
 
     private String message;
@@ -36,7 +40,7 @@ public class SubjectController extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>Students</h1>");
-        out.println(service.listar());
+        out.println(service.list());
         out.println("</body></html>");
     }
 
@@ -45,12 +49,10 @@ public class SubjectController extends HttpServlet {
         resp.setContentType("text/html");
 
         String name = req.getParameter("name");
-        String email = req.getParameter("email");
-        String semester = req.getParameter("semester");
-        String career = req.getParameter("career");
-        StudentDto student = new StudentDto(4L, name, email, semester, Career.fromValue(career));
-        service.guardar(student);
-        System.out.println(service.listar());
+        String teacher = req.getParameter("teacher");
+        SubjectDto subject = new SubjectDto(4L, name, Teacher.builder().build());
+        service.update(subject);
+        System.out.println(service.list());
 
         try (PrintWriter out = resp.getWriter()) {
 
@@ -65,7 +67,7 @@ public class SubjectController extends HttpServlet {
 
             out.println("        <ul>");
             out.println("            <li>Name: " + name + "</li>");
-            out.println("            <li>Career: " + career + "</li>");
+            out.println("            <li>Career: " + teacher + "</li>");
             out.println("        </ul>");
             out.println("    </body>");
             out.println("</html>");
