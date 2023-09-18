@@ -1,6 +1,7 @@
 package com.example.repository.impl;
 
 import com.example.conexion.ConexionBD;
+import com.example.domain.enums.Career;
 import com.example.domain.models.Student;
 import com.example.mapping.dtos.StudentDto;
 import com.example.mapping.mapper.StudentMapper;
@@ -19,7 +20,7 @@ public class StudentRepositoryImpl implements Repository<StudentDto> {
         student.setId_Students(rs.getLong("id_student"));
         student.setName(rs.getString("nombre"));
         student.setEmail(rs.getString("email"));
-        student.setCareer(rs.getString("career"));
+        student.setCareer(Career.valueOf(rs.getString("career")));
         student.setSemester(rs.getString("semester"));
         return student;
     }
@@ -66,7 +67,7 @@ public class StudentRepositoryImpl implements Repository<StudentDto> {
         }
         try(PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             stmt.setString(1, student.name());
-            stmt.setString(2, student.career());
+            stmt.setString(2, String.valueOf(student.career()));
 
             if (student.id_Students() != null && student.id_Students() > 0) {
                 stmt.setString(3, student.email());

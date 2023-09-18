@@ -1,6 +1,7 @@
 package com.example.repository.impl;
 
 import com.example.conexion.ConexionBD;
+import com.example.domain.enums.Career;
 import com.example.domain.models.Grade;
 import com.example.domain.models.Student;
 import com.example.domain.models.Subject;
@@ -28,7 +29,7 @@ public class GradeRepositoryImpl implements Repository<GradeDto> {
         students.setId_Students(resultSet.getLong("id_students"));
         students.setName(resultSet.getString("name"));
         students.setEmail(resultSet.getString("email"));
-        students.setCareer(resultSet.getString("career"));
+        students.setCareer(Career.valueOf(resultSet.getString("career")));
         students.setSemester(resultSet.getString("semester"));
         grades.setStudent(students);
 
