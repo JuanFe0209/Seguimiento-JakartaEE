@@ -10,7 +10,7 @@ import java.util.List;
 public class StudentServiceImpl implements StudentsService {
     private final StudentRepositoryImpl repository;
 
-    public StudentServiceImpl(StudentRepositoryLogicImpl repository) {
+    public StudentServiceImpl(StudentRepositoryImpl repository) {
         this.repository = repository;
     }
 
