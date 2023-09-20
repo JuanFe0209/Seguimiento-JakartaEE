@@ -13,11 +13,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 @WebServlet(name = "studentController", value = "/student-form")
+
 public class StudentController extends HttpServlet {
 
-    private StudentRepositoryLogicImpl studentRepository;
-    private final StudentServiceImpl service;
+    public StudentRepositoryLogicImpl studentRepository;
+    public StudentServiceImpl service;
 
     public StudentController() {
         studentRepository = new StudentRepositoryLogicImpl();
@@ -27,7 +29,7 @@ public class StudentController extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World!";
+        message = "Students";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -37,7 +39,7 @@ public class StudentController extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>Students</h1>");
-        out.println(service.listar());
+        out.println(service.list());
         out.println("</body></html>");
     }
 
@@ -49,9 +51,9 @@ public class StudentController extends HttpServlet {
         String email = req.getParameter("email");
         String semester = req.getParameter("semester");
         String career = req.getParameter("career");
-        StudentDto student = new StudentDto(4L, name, email, semester, Career.fromValue(career));
-        service.guardar(student);
-        System.out.println(service.listar());
+        StudentDto student = new StudentDto(1L, name, email,semester,career);
+        service.update(student);
+        System.out.println(service.list());
 
         try (PrintWriter out = resp.getWriter()) {
 
@@ -66,6 +68,8 @@ public class StudentController extends HttpServlet {
 
             out.println("        <ul>");
             out.println("            <li>Name: " + name + "</li>");
+            out.println("            <li>Email: " + email + "</li>");
+            out.println("            <li>Semester: " + semester + "</li>");
             out.println("            <li>Career: " + career + "</li>");
             out.println("        </ul>");
             out.println("    </body>");

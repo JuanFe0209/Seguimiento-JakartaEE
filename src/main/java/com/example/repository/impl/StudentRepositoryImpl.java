@@ -20,7 +20,7 @@ public class StudentRepositoryImpl implements Repository<StudentDto> {
         student.setId_Students(rs.getLong("id_student"));
         student.setName(rs.getString("nombre"));
         student.setEmail(rs.getString("email"));
-        student.setCareer(Career.valueOf(rs.getString("career")));
+        student.setCareer(rs.getString("career"));
         student.setSemester(rs.getString("semester"));
         return student;
     }

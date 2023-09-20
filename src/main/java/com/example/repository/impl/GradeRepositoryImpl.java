@@ -29,7 +29,7 @@ public class GradeRepositoryImpl implements Repository<GradeDto> {
         students.setId_Students(resultSet.getLong("id_students"));
         students.setName(resultSet.getString("name"));
         students.setEmail(resultSet.getString("email"));
-        students.setCareer(Career.valueOf(resultSet.getString("career")));
+        students.setCareer(resultSet.getString("career"));
         students.setSemester(resultSet.getString("semester"));
         grades.setStudent(students);
 
