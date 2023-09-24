@@ -10,6 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ad1cc3d-5b44-40ba-9750-c89e09b26169" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/services/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/services/impl/LoginServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controllers/Refresh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/Refresh.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,27 +58,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Miriam Bueno Salgado/IdeaProjects/Seguimiento-JakartaEE/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Miriam Bueno Salgado/IdeaProjects/Seguimiento-JakartaEE/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Miriam Bueno Salgado\IdeaProjects\Seguimiento-JakartaEE\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Miriam Bueno Salgado\IdeaProjects\Seguimiento-JakartaEE\src\main\resources" />
       <recent name="C:\Users\Miriam Bueno Salgado\IdeaProjects\Seguimiento-JakartaEE\src\main\webapp" />
+      <recent name="C:\Users\Miriam Bueno Salgado\IdeaProjects\Seguimiento-JakartaEE\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -173,6 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1695039938292</updated>
       <workItem from="1695039939206" duration="17576000" />
+      <workItem from="1695401977161" duration="4511000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />

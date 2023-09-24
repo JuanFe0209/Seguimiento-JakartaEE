@@ -29,7 +29,9 @@ public class Refresh {
             out.println("<h3>" + hora.format(df) + "</h3>");
             out.println(" </body>");
             out.println("</html>");
+            //getRequestDispatcher se utiliza para transferir el control al recurso dentro del servidor, por lo general, a otro servlet o a una página JSP dentro de la misma aplicación web
             req.getServletContext().getRequestDispatcher("/students.html").forward(req, resp);
+            //sendRedirect se utiliza para redireccionar a los clientes del navegador a una nueva URL. Puede ser una URL dentro de la misma aplicación web o una URL externa.
             resp.sendRedirect(req.getContextPath() + "/students.html");
 
         }
