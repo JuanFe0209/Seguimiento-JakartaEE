@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import com.example.services.LoginService;
+import com.example.services.impl.LoginServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -9,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Optional;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -41,12 +44,10 @@ public class LoginServlet extends HttpServlet {
                 out.println(" <title>Hola " + cookieOptional.get() + "</title>");
                 out.println(" </head>");
                 out.println(" <body>");
-                out.println(" <h1>Hola " + cookieOptional.get() + " has iniciado sesión con
-                        éxito!</h1>");
+                out.println(" <h1>Hola " + cookieOptional.get() + " has iniciado sesión con éxito!</h1>");
                 out.println("<p><a href='" + req.getContextPath() +
                         "/index.html'>volver</a></p>");
-                out.println("<p><a href='" + req.getContextPath() + "/logout'>cerrar
-                        sesión</a></p>");
+                out.println("<p><a href='" + req.getContextPath() + "/logout'>cerrar sesión</a></p>");
                 out.println(" </body>");
                 out.println("</html>");
             }
