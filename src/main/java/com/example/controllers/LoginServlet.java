@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
 
+import static java.lang.System.out;
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     final static String USERNAME = "admin";
@@ -53,5 +55,9 @@ public class LoginServlet extends HttpServlet {
         } else {
             getServletContext().getRequestDispatcher("/login.jsp").forward(req, resp);
         }
+        String mensajeRequest = (String) req.getAttribute("mensaje");
+        String mensajeApp = (String) getServletContext().getAttribute("mensaje");
+        out.println("<p>" + mensajeApp + "</p>");
+        out.println("<p>" + mensajeRequest + "</p>");
     }
 }
