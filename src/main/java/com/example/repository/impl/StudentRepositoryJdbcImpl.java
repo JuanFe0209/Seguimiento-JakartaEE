@@ -11,10 +11,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRepositoryImpl implements Repository<StudentDto> {
-    private Connection getConnection() throws SQLException {
-        return ConexionBD.getInstance();
+import static com.example.utils.ConexionBaseDatos.getConnection;
+
+public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
+
+    private Connection conn;
+    public StudentRepositoryJdbcImpl(Connection conn) {
+        this.conn = conn;
     }
+
     private Student createStudent(ResultSet rs) throws SQLException {
         Student student = new Student();
         student.setId_Students(rs.getLong("id_student"));
@@ -26,20 +31,18 @@ public class StudentRepositoryImpl implements Repository<StudentDto> {
     }
     @Override
     public List<StudentDto> list() {
-        List<Student> studentList = new ArrayList<>();
-
-        try (Statement statement = getConnection().createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * from student")) {
-            while (resultSet.next()) {
-                Student student = createStudent(resultSet);
-                studentList.add(student);
+        List<Student> students = new ArrayList<>();
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT s.* order by s.id ASC")) {
+            while (rs.next()) {
+                Student ps= createStudent(rs);
+                students.add(ps);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return StudentMapper.mapFrom(studentList);
+        return StudentMapper.mapFrom(students);
     }
-
     @Override
     public StudentDto byId(Long id) {
         Student student = null;
