@@ -4,7 +4,7 @@ import com.example.mapping.dtos.GradeDto;
 
 import java.util.List;
 
-public interface GradesService {
+public interface GradeService {
     List<GradeDto> list();
 
     GradeDto byId(Long id);

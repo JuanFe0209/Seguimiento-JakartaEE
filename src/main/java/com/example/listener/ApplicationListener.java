@@ -33,6 +33,6 @@ public class ApplicationListener implements ServletContextListener,
 // de la siguiente manera: en el ámbito de solicitud (Request), se pueden almacenar temporalmente datos específicos de un estudiante,
 // como detalles personales o errores de validación, para su uso durante la solicitud actual, como al mostrar información
 // o mensajes de error. Por otro lado, el ámbito de contexto del servlet (ServletContext) es útil para almacenar datos globales
-// de la aplicación, como configuraciones generales, contenido estático compartido o listas de materias, que deben estar disponibles
+// de la aplicación, como configuraciones generales, content estático compartido o listas de materias, que deben estar disponibles
 // en toda la aplicación y no cambian con frecuencia, asegurando una gestión eficiente de los recursos
 // y la accesibilidad de información esencial en toda la aplicación universitaria.

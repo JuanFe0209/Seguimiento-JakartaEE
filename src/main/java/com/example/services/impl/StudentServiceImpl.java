@@ -2,14 +2,14 @@ package com.example.services.impl;
 
 import com.example.mapping.dtos.StudentDto;
 import com.example.repository.impl.StudentRepositoryLogicImpl;
-import com.example.services.StudentsService;
+import com.example.services.StudentService;
 import lombok.NoArgsConstructor;
 import java.util.List;
 @NoArgsConstructor
 
 
 
-public class StudentServiceImpl implements StudentsService {
+public class StudentServiceImpl implements StudentService {
     StudentRepositoryLogicImpl repo = new StudentRepositoryLogicImpl();
 
     public StudentServiceImpl(StudentRepositoryLogicImpl repository) {

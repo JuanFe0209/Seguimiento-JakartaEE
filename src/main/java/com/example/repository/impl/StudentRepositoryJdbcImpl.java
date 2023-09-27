@@ -46,7 +46,7 @@ public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
     @Override
     public StudentDto byId(Long id) {
         Student student = null;
-        try (PreparedStatement preparedStatement = getConnection()
+        try (PreparedStatement preparedStatement = conn
                 .prepareStatement("SELECT * FROM student WHERE id_student=?")) {
             preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -68,7 +68,7 @@ public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
         } else {
             sql = "INSERT INTO student (name, career, email, semester) VALUES(?,?,?,?)";
         }
-        try(PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, student.name());
             stmt.setString(2, String.valueOf(student.career()));
 
@@ -84,7 +84,7 @@ public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
     }
     @Override
     public void delete(Long id) {
-        try(PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM student WHERE id_student =?")){
+        try(PreparedStatement stmt = conn.prepareStatement("DELETE FROM student WHERE id_student =?")){
             stmt.setLong(1, id);
             stmt.executeUpdate();
         } catch (SQLException throwables) {

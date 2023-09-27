@@ -2,12 +2,12 @@ package com.example.services.impl;
 
 import com.example.mapping.dtos.GradeDto;
 import com.example.repository.impl.GradeRepositoryImpl;
-import com.example.services.GradesService;
+import com.example.services.GradeService;
 
 import java.util.List;
 
 
-public class GradeServiceImpl implements GradesService {
+public class GradeServiceImpl implements GradeService {
     GradeRepositoryImpl repo = new GradeRepositoryImpl();
     @Override
     public List<GradeDto> list() {

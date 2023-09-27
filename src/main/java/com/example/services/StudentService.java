@@ -4,7 +4,7 @@ import com.example.mapping.dtos.StudentDto;
 
 import java.util.List;
 
-public interface StudentsService {
+public interface StudentService {
 
     List<StudentDto> list();
 

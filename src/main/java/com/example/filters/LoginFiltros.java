@@ -9,12 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.Optional;
-
-public class LoginFiltros {
-    @WebFilter({"/students"})//urls que deseamos aplique el filtro
-//si queremos implementar varias pondriamos:
-//@WebFilter({"/students", “/teachers”,”subjects”})
-    public class LoginFiltro implements Filter {
+@WebFilter({"/students"})
+    public class LoginFiltros implements Filter {
         @Override
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain
                 chain) throws IOException, ServletException {
@@ -29,5 +25,3 @@ public class LoginFiltros {
             }
         }
     }
-
-}
