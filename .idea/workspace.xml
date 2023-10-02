@@ -10,21 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ad1cc3d-5b44-40ba-9750-c89e09b26169" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/StudentById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/utils/ConexionFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/studentById.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/impl/StudentRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controllers/LoginSessionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/LoginSessionServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controllers/Refresh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/Refresh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filters/ConnectionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filters/ConnectionFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filters/LoginFiltros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filters/LoginFiltros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/listener/ApplicationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/listener/ApplicationListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/impl/StudentRepositoryJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/impl/StudentRepositoryJdbcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/services/GradesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/services/GradeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/services/StudentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/services/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/services/impl/GradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/services/impl/GradeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mapping/dtos/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mapping/dtos/StudentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/services/impl/StudentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/services/impl/StudentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/utils/ConexionBaseDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/utils/ConexionBaseDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/student.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/student.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +184,7 @@
       <workItem from="1695039939206" duration="17576000" />
       <workItem from="1695401977161" duration="6171000" />
       <workItem from="1695644573482" duration="6998000" />
-      <workItem from="1695816838430" duration="5847000" />
+      <workItem from="1695816838430" duration="8372000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -339,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695690454673</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=".">
+      <option name="closed" value="true" />
+      <created>1695822982903</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695822982903</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,6 +1,7 @@
 package com.example.services.impl;
 
 import com.example.mapping.dtos.StudentDto;
+import com.example.repository.impl.StudentRepositoryImpl;
 import com.example.repository.impl.StudentRepositoryLogicImpl;
 import com.example.services.StudentService;
 import lombok.NoArgsConstructor;
@@ -10,9 +11,9 @@ import java.util.List;
 
 
 public class StudentServiceImpl implements StudentService {
-    StudentRepositoryLogicImpl repo = new StudentRepositoryLogicImpl();
+    StudentRepositoryImpl repo = new StudentRepositoryImpl();
 
-    public StudentServiceImpl(StudentRepositoryLogicImpl repository) {
+    public StudentServiceImpl(StudentRepositoryImpl repository) {
         this.repo = repository;
     }
     @Override
