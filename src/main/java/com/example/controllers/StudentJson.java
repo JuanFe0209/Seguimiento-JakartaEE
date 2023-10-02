@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-@WebServlet(name = "studentController", value = "/student-form")
+@WebServlet({"/students.json"})
 public class StudentJson extends HttpServlet {
     public StudentRepositoryLogicImpl studentRepository;
     public StudentServiceImpl service;
