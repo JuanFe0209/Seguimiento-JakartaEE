@@ -20,10 +20,6 @@ public class StudentJson extends HttpServlet {
     public StudentRepositoryLogicImpl studentRepository;
     public StudentServiceImpl service;
 
-    public StudentJson() {
-        studentRepository = new StudentRepositoryLogicImpl();
-        service = new StudentServiceImpl(studentRepository);
-    }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {
         ServletInputStream jsonStream = req.getInputStream();
