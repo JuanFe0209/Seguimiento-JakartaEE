@@ -46,7 +46,6 @@ public class StudentJson extends HttpServlet {
             out.println("</html>");
 
         }
-
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,

@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.lang.System.out;
+
 @WebServlet(name = "studentController", value = "/student-form")
 public class StudentController extends HttpServlet {
     private StudentRepositoryImpl studentRepository;
@@ -57,12 +60,12 @@ public class StudentController extends HttpServlet {
         String idioma = req.getParameter("idioma");
         boolean habilitar = req.getParameter("habilitar") != null && req.getParameter("habilitar").equals("on");
         String secreto = req.getParameter("secreto");
-        System.out.println("idioma: " +idioma + " habilitar: " + habilitar + " secreto: " + secreto);
-        System.out.println("pais "+pais + "lenguajes " +lenguajes+" roles " +roles);
+        out.println("idioma: " +idioma + " habilitar: " + habilitar + " secreto: " + secreto);
+        out.println("pais "+pais + "lenguajes " +lenguajes+" roles " +roles);
         List<String> errores = getErrors(name,semester,email);
         Map<String,String> errorsmap= getErrors2(name,semester,email,pais);
         service.update(student);
-        System.out.println(service.list());
+        out.println(service.list());
         if(errorsmap.isEmpty()) {
             try (PrintWriter out = resp.getWriter()) {
                 out.println("<!DOCTYPE html>");
@@ -86,10 +89,10 @@ public class StudentController extends HttpServlet {
             }
         }
         else{
-/* errores.forEach(error -> {
+errores.forEach(error -> {
 out.println("<li>" + error + "</li>");
 });
-out.println("<p><a href=\"/student.jsp\">volver</a></p>");*/
+out.println("<p><a href=\"/student.jsp\">volver</a></p>");
             req.setAttribute("errors", errores);
             req.setAttribute("errorsmap", errorsmap);
             getServletContext().getRequestDispatcher("/student.jsp").forward(req, resp);
