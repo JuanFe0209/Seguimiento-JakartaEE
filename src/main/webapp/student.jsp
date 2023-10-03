@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student CRUD</title>
+  <title>Formulario Estudiantes</title>
   <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -42,6 +42,33 @@
           </div>
           <% } %>
         </div>
+        <div class="row mb-3">
+          <label for="pais" class="col-form-label col-sm-2">País</label>
+          <div class="col-sm-4">
+        <select name="pais" id="pais" class="form-select">
+          <option value="">-- seleccionar --</option>
+          <option value="ES" ${param.pais.equals("ES")? "selected":
+                  ""}>España</option>
+          <option value="MX" ${param.pais.equals("MX")? "selected":
+                  ""}>México</option>
+          <option value="CL" ${param.pais.equals("CL")? "selected":
+                  ""}>Chile</option>
+          <option value="AR" ${param.pais.equals("AR")? "selected":
+                  ""}>Argentina</option>
+          <option value="PE" ${param.pais.equals("PE")? "selected":
+                  ""}>Perú</option>
+          <option value="CO" ${param.pais.equals("CO")? "selected":
+                  ""}>Colombia</option>
+          <option value="VE" ${param.pais.equals("VE")? "selected":
+                  ""}>Venezuela</option>
+        </select>
+    </div>
+    <%
+      if(errorsmap != null && errorsmap.containsKey("pais")){
+        out.println("<small class='alert alert-danger col-sm-4'style='color: red;'>"+ errorsmap.get("pais") + "</small>");
+      }
+    %>
+  </div>
         <div class="mb-3">
           <label for="career" class="form-label">Career</label>
           <select name="career" id="career" class="form-select">
@@ -66,22 +93,48 @@
           <label for="semester" class="form-label">Semester</label>
           <select name="semester" id="semester" class="form-select">
             <option value="">-- Seleccionar --</option>
-            <option value="1" ${param.semester.equals("1")? "selected": ""}>1</option>
-            <option value="2" ${param.semester.equals("2")? "selected": ""}>2</option>
-            <option value="3" ${param.semester.equals("3")? "selected": ""}>3</option>
-            <option value="4" ${param.semester.equals("4")? "selected": ""}>4</option>
-            <option value="5" ${param.semester.equals("5")? "selected": ""}>5</option>
-            <option value="6" ${param.semester.equals("6")? "selected": ""}>6</option>
-            <option value="7" ${param.semester.equals("7")? "selected": ""}>7</option>
-            <option value="8" ${param.semester.equals("8")? "selected": ""}>8</option>
-            <option value="9" ${param.semester.equals("9")? "selected": ""}>9</option>
-            <option value="10" ${param.semester.equals("10")? "selected": ""}>10</option>
+            <option value="I" ${param.semester.equals("I")? "selected": ""}>I</option>
+            <option value="II" ${param.semester.equals("II")? "selected": ""}>II</option>
+            <option value="III" ${param.semester.equals("III")? "selected": ""}>III</option>
+            <option value="IV" ${param.semester.equals("IV")? "selected": ""}>IV</option>
+            <option value="V" ${param.semester.equals("V")? "selected": ""}>V</option>
+            <option value="VI" ${param.semester.equals("VI")? "selected": ""}>VI</option>
+            <option value="VII" ${param.semester.equals("VII")? "selected": ""}>VII</option>
+            <option value="VIII" ${param.semester.equals("VII")? "selected": ""}>VIII</option>
+            <option value="IX" ${param.semester.equals("IX")? "selected": ""}>IX</option>
+            <option value="X" ${param.semester.equals("X")? "selected": ""}>X</option>
           </select>
           <% if(errorsmap != null && errorsmap.containsKey("semester")){ %>
           <div class="alert alert-danger mt-2" style="color: red;">
             ${errorsmap.get("semester")}
           </div>
           <% } %>
+        </div>
+        <div class="row mb-3">
+          <label for="lenguajes" class="col-form-label col-sm-2">Lenguajes de
+            programación</label>
+          <div class="col-sm-4">
+            <select name="lenguajes" id="lenguajes" multiple
+                    class="form-select">
+              <option value="java"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("java")).get()?"selected":""}>Java SE</option>
+              <option value="jakartaee"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("jakartaee")).get()?"selected":""}>Jakarta EE9</option>
+              <option value="spring"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("spring")).get()?"selected":""}>Spring Boot</option>
+              <option value="js"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("js")).get()?"selected":""}>JavaScript</option>
+              <option value="angular"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("angular")).get()?"selected":""}>Angular</option>
+              <option value="react"
+              ${paramValues.lenguajes.stream().anyMatch(v->v.equals("react")).get()?"selected":""}>React</option>
+            </select>
+          </div>
+          <%
+            if(errorsmap != null && errorsmap.containsKey("lenguajes")){
+              out.println("<small class='alert alert-danger col-sm-4'style='color: red;'>"+ errorsmap.get("lenguajes") + "</small>");
+            }
+          %>
         </div>
         <div class="mb-3">
           <input type="submit" value="Enviar" class="btn btn-primary">
