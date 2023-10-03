@@ -22,7 +22,7 @@ public class StudentById extends HttpServlet {
     protected void doPost(HttpServlet request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id_student = null;
-        String studentIdStr = request.getInitParameter("studentId");
+        String studentIdStr = request.getInitParameter("id");
 
         if (studentIdStr != null && !studentIdStr.isEmpty()) {
             try {

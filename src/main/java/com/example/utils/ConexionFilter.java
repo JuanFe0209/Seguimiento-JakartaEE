@@ -14,16 +14,16 @@ public class ConexionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain
             chain) throws IOException, ServletException {
-        try (Connection con = ConexionBaseDatos.getConnection()){
-            if (con.getAutoCommit()) {
-                con.setAutoCommit(false);
+        try (Connection conn = ConexionBaseDatos.getConnection()){
+            if (conn.getAutoCommit()) {
+                conn.setAutoCommit(false);
             }
             try {
-                request.setAttribute("con", con);
+                request.setAttribute("conn", conn);
                 chain.doFilter(request, response);
-                con.commit();
+                conn.commit();
             } catch (SQLException | ServiceJdbcException e) {
-                con.rollback();
+                conn.rollback();
                 ((HttpServletResponse)response).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
                 e.printStackTrace();
             }
