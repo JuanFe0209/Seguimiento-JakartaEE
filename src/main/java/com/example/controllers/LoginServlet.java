@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
         if (USERNAME.equals(username) && PASSWORD.equals(password)) {
             Cookie usernameCookie = new Cookie("username", username);
             resp.addCookie(usernameCookie);
-            resp.sendRedirect(req.getContextPath() + "/login.html");
+            resp.sendRedirect(req.getContextPath() + "/login");
         } else {
             resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Lo sentimos no esta autorizado para ingresar a esta página!");
         }

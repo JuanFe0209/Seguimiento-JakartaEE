@@ -5,8 +5,7 @@
   List<String> errores = (List<String>)request.getAttribute("errores");
 %>
 <%
-  Map<String,String> errorsmap =
-          (Map<String,String>)request.getAttribute("errorsmap");
+  Map<String,String> errorsmap = (Map<String,String>)request.getAttribute("errorsmap");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,7 +16,7 @@
 <body>
 <div class="container mt-5">
   <h3>Formulario estudiantes</h3>
-    <%
+  <%
     if (errores != null && !errores.isEmpty()) {
   %>
   <ul class="alert alert-danger mx-5">
@@ -25,7 +24,7 @@
     <li><%= error %></li>
     <% } %>
   </ul>
-    <% } %>
+  <% } %>
   <form action="student-form" method="post">
     <div class="row mb-3">
       <label for="name" class="col-form-label col-sm-2">Name</label>
@@ -56,6 +55,17 @@
         <%
           if (errorsmap != null && errorsmap.containsKey("semester")) {
             out.println("<div class='alert alert-danger mt-2'>" + errorsmap.get("semester") + "</div>");
+          }
+        %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="career" class="col-form-label col-sm-2">Career</label>
+      <div class="col-sm-4">
+        <input type="text" name="career" id="career" class="form-control">
+        <%
+          if (errorsmap != null && errorsmap.containsKey("career")) {
+            out.println("<div class='alert alert-danger mt-2'>" + errorsmap.get("career") + "</div>");
           }
         %>
       </div>
@@ -105,7 +115,7 @@
         <label class="form-check-label">Administrador</label>
       </div>
       <div class="form-check col-sm-2">
-        <input type="checkbox" name="roles" value="ROLE_USER" ${paramValues.roles != null && paramValues.roles.contains("ROLE_USER") ? "checked" : ""} class="form-check-input"
+        <input type="checkbox" name="roles" value="ROLE_USER" ${paramValues.roles != null && paramValues.roles.contains("ROLE_USER") ? "checked" : ""} class="form-check-input">
         <label class="form-check-label">Usuario</label>
       </div>
       <div class="form-check col-sm-2">

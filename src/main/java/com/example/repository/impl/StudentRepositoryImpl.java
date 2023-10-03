@@ -65,17 +65,18 @@ public class StudentRepositoryImpl implements Repository<StudentDto> {
     public void update(StudentDto student) {
         String sql;
         if (student.id_Students() != null && student.id_Students() > 0) {
-            sql = "UPDATE student SET name=?, career=?, email=?, semester=? WHERE id_student=?";
+            sql = "UPDATE student SET name=?, email=?, semester=?, career=? WHERE id_student=?";
         } else {
-            sql = "INSERT INTO student (name, career, email, semester) VALUES(?,?,?,?)";
+            sql = "INSERT INTO student (name, email, semester, career) VALUES(?,?,?,?)";
         }
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, student.name());
-            pstmt.setString(2, student.career());
-            pstmt.setString(3, student.email());
+            pstmt.setString(2, student.email());
+            pstmt.setString(3, student.semester());
+            pstmt.setString(4, student.career());
 
             if (student.id_Students() != null && student.id_Students() > 0) {
-                pstmt.setLong(4, student.id_Students());
+                pstmt.setLong(5, student.id_Students());
             }
             pstmt.executeUpdate();
         } catch (SQLException throwables) {
