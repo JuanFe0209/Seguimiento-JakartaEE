@@ -1,0 +1,12 @@
+
+pool.setInitialSize(3): El metodo pool.setInitialSize, establece el número inicial de conexiones que se crearán cuando se inicie el pool 
+de conexiones. En este caso, se están configurando 3 conexiones iniciales. Esto significa que cuando el pool de conexiones se crea
+por primera vez, se crearán 3 conexiones de base de datos listas para su uso inmediato.
+
+pool.setMinIdle(3): El metodo pool.setMinIdle, establece la cantidad mínima de conexiones inactivas que el pool de conexiones debe 
+mantener. En este caso, se están configurando 3 conexiones inactivas como el mínimo. Esto garantiza que siempre haya al menos 3 
+conexiones listas para su uso en el pool, incluso si algunas de ellas están inactivas.
+
+pool.setMaxIdle(8): El metodo pool.setMaxIdle, establece la cantidad máxima de conexiones inactivas que el pool de conexiones puede 
+mantener. En este caso, se están configurando 8 como el máximo número de conexiones inactivas permitidas. Esto significa que el pool 
+de conexiones no mantendrá más de 8 conexiones inactivas a la vez.
