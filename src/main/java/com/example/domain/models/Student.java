@@ -1,6 +1,7 @@
 package com.example.domain.models;
-import com.example.domain.enums.Career;
+import jakarta.enterprise.context.SessionScoped;
 import lombok.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -8,7 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Builder
-public class Student {
+@SessionScoped
+public class Student implements Serializable {
     private Long id_Students;
     private String name;
     private String email;
