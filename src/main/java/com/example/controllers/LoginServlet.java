@@ -1,13 +1,14 @@
 package com.example.controllers;
 import com.example.services.LoginService;
+import com.example.services.TeacherService;
 import com.example.services.impl.LoginServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
@@ -18,6 +19,10 @@ import static java.lang.System.out;
 public class LoginServlet extends HttpServlet {
     final static String USERNAME = "admin";
     final static String PASSWORD = "12345";
+    @Inject
+    LoginService auth;
+    @Inject
+    TeacherService service;
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {

@@ -3,7 +3,8 @@ package com.example.controllers;
 import com.example.mapping.dtos.StudentDto;
 import com.example.repository.impl.StudentRepositoryImpl;
 import com.example.services.StudentService;
-import com.example.services.impl.StudentServiceImpl;
+import com.example.services.impl.StudentServiceimpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,11 +18,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.lang.System.out;
-
 @WebServlet(name = "studentController", value = "/student-form")
 public class StudentController extends HttpServlet {
+    @Inject
     public StudentRepositoryImpl studentRepository;
+    @Inject
     public StudentService service;
 
     private String message;
@@ -34,7 +35,7 @@ public class StudentController extends HttpServlet {
         response.setContentType("text/html");
         Connection conn = (Connection) request.getAttribute("conn");
         studentRepository = new StudentRepositoryImpl(conn);
-        service = new StudentServiceImpl(conn);
+        service = new StudentServiceimpl();
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
@@ -48,7 +49,7 @@ public class StudentController extends HttpServlet {
         resp.setContentType("text/html");
         Connection conn = (Connection) req.getAttribute("conn");
         studentRepository = new StudentRepositoryImpl(conn);
-        service = new StudentServiceImpl(conn);
+        service = new StudentServiceimpl();
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String semester = req.getParameter("semester");

@@ -12,7 +12,7 @@ import java.util.List;
 @ApplicationScoped
 public class GradeServiceImpl implements GradeService {
     @Inject
-    private Repository<GradeDto> gradeDtoRepository;
+    private Repository<GradeDto> gradeRepository;
     GradeRepositoryImpl repo = new GradeRepositoryImpl();
     @Override
     public List<GradeDto> list() {

@@ -1,14 +1,19 @@
 package com.example.repository.impl;
 
+import com.example.annotations.MysqlConn;
 import com.example.domain.exceptions.UniversityException;
 import com.example.domain.models.Subject;
 import com.example.domain.models.Teacher;
 import com.example.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@ApplicationScoped
 public class SubjectRepositoryLogicImpl implements Repository<Subject> {
+    @Inject
+    @MysqlConn
     private List<Subject> subjects;
 
     public SubjectRepositoryLogicImpl() {

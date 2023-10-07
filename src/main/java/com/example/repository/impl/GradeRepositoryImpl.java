@@ -1,5 +1,6 @@
 package com.example.repository.impl;
 
+import com.example.annotations.MysqlConn;
 import com.example.conexion.ConexionBD;
 import com.example.domain.enums.Career;
 import com.example.domain.models.Grade;
@@ -9,13 +10,16 @@ import com.example.domain.models.Teacher;
 import com.example.mapping.dtos.GradeDto;
 import com.example.mapping.mapper.GradeMapper;
 import com.example.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@ApplicationScoped
 public class GradeRepositoryImpl implements Repository<GradeDto> {
-
+@Inject
+@MysqlConn
     private Connection getConnection() throws SQLException {
         return ConexionBD.getInstance();
     }

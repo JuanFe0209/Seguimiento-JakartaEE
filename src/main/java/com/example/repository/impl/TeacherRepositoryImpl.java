@@ -1,19 +1,21 @@
 package com.example.repository.impl;
 
+import com.example.annotations.MysqlConn;
 import com.example.conexion.ConexionBD;
 import com.example.domain.models.Teacher;
 import com.example.mapping.dtos.TeacherDto;
 import com.example.mapping.mapper.TeacherMapper;
 import com.example.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@ApplicationScoped
 public class TeacherRepositoryImpl implements Repository<TeacherDto> {
-    public TeacherRepositoryImpl(SubjectRepositoryLogicImpl teacherRepository) {
-    }
-
+    @Inject
+    @MysqlConn
     private Connection getConnection() throws SQLException {
         return ConexionBD.getInstance();
     }

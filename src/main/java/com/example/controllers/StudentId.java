@@ -3,20 +3,24 @@ package com.example.controllers;
 import com.example.mapping.dtos.StudentDto;
 import com.example.repository.impl.StudentRepositoryLogicImpl;
 import com.example.services.StudentService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Optional;
 
-@WebServlet("/student-by-id")
-public class StudentById extends HttpServlet {
-
-    public StudentRepositoryLogicImpl repository;
-    public StudentService service;
+@WebServlet(name= "studentId", value="/student-formId")
+public class StudentId extends HttpServlet {
+    @Inject
+    private StudentService service;
 
 
     protected void doPost(HttpServlet request, HttpServletResponse response)
@@ -55,8 +59,21 @@ public class StudentById extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Test");
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        resp.setContentType("text/html");
+        Connection conn = (Connection) req.getAttribute("conn");
+        ServletInputStream JsonStream = req.getInputStream();
+        ObjectMapper mapper = new ObjectMapper();
+        StudentDto studentDto = mapper.readValue(JsonStream,
+                StudentDto.class);
+        Long id = studentDto.id_Students();
+        service.byId(id);
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>Students</h1>");
+        out.println(service.byId(id));
+        out.println("</body></html>");
     }
 }

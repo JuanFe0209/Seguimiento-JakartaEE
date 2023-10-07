@@ -1,25 +1,20 @@
 package com.example.repository.impl;
-
-import com.example.conexion.ConexionBD;
-import com.example.domain.enums.Career;
+import com.example.annotations.MysqlConn;
 import com.example.domain.models.Student;
 import com.example.mapping.dtos.StudentDto;
 import com.example.mapping.mapper.StudentMapper;
 import com.example.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.utils.ConexionBaseDatos.getConnection;
-
+@ApplicationScoped
 public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
-
+@Inject
+ @MysqlConn
     private Connection conn;
-    public StudentRepositoryJdbcImpl(Connection conn) {
-        this.conn = conn;
-    }
-
     private Student createStudent(ResultSet rs) throws SQLException {
         Student student = new Student();
         student.setId_Students(rs.getLong("id_student"));

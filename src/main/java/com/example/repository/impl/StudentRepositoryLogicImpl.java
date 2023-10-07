@@ -1,16 +1,20 @@
 package com.example.repository.impl;
 
-import com.example.domain.enums.Career;
+import com.example.annotations.MysqlConn;
 import com.example.domain.exceptions.UniversityException;
 import com.example.domain.models.Student;
 import com.example.mapping.dtos.StudentDto;
 import com.example.mapping.mapper.StudentMapper;
 import com.example.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@ApplicationScoped
 public class StudentRepositoryLogicImpl implements Repository<StudentDto> {
+    @Inject
+    @MysqlConn
     private List<Student> students;
 
     public StudentRepositoryLogicImpl() {
