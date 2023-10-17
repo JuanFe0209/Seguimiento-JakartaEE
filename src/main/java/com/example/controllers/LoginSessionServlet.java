@@ -1,7 +1,8 @@
 package com.example.controllers;
 import com.example.services.LoginService;
-import com.example.services.impl.LoginServiceImpl;
+import com.example.services.StudentService;
 import com.example.services.impl.LoginServiceSessionImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -14,7 +15,8 @@ import java.util.Optional;
 public class LoginSessionServlet extends HttpServlet {
     final static String USERNAME = "admin";
     final static String PASSWORD = "12345";
-
+    @Inject
+    private StudentService service;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

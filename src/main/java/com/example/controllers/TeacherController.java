@@ -1,10 +1,8 @@
 package com.example.controllers;
-
-import com.example.domain.models.Teacher;
-import com.example.mapping.dtos.SubjectDto;
 import com.example.mapping.dtos.TeacherDto;
 import com.example.repository.impl.TeacherRepositoryImpl;
-import com.example.repository.impl.SubjectRepositoryLogicImpl;
+import com.example.services.TeacherService;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,24 +14,9 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "teacherController", value = "/teacher-form")
 public class TeacherController extends HttpServlet {
-    private SubjectRepositoryLogicImpl teacherRepository;
-    private final TeacherRepositoryImpl service;
 
-    public TeacherController() {
-        teacherRepository = new SubjectRepositoryLogicImpl();
-        service = new TeacherRepositoryImpl(teacherRepository);
-    }
-
-    private String message;
-
-    public TeacherController(TeacherRepositoryImpl service) {
-        this.service = service;
-    }
-
-    public void init() {
-        message = "Hello World!";
-    }
-
+    @Inject
+    private TeacherService service;
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 

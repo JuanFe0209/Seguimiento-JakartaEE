@@ -1,4 +1,4 @@
-package com.example.repository.impl;
+/* package com.example.repository.impl;
 
 import com.example.annotations.MysqlConn;
 import com.example.domain.exceptions.UniversityException;
@@ -51,3 +51,5 @@ public class StudentRepositoryLogicImpl implements Repository<StudentDto> {
     }
 
 }
+
+ */

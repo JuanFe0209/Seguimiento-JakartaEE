@@ -8,6 +8,7 @@ import com.example.mapping.mapper.StudentMapper;
 import com.example.repository.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import lombok.NoArgsConstructor;
 
 import java.sql.*;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@Named("defaultRepository")
 @ApplicationScoped
 public class StudentRepositoryImpl implements Repository<StudentDto> {
     @Inject

@@ -9,17 +9,19 @@ public class GradeMapper {
         return new GradeDto(source.getId_Grades(),
                 source.getStudent(),
                 source.getSubject(),
+                source.getGrade(),
                 source.getCorte());
     }
 
-    public static Grade mapFrom(GradeDto source) {
-        return new Grade(source.id_Grades(),
+    public static Grade mapFrom(GradeDto source){
+        return new Grade(source.gradesId(),
                 source.student(),
                 source.subject(),
+                source.grade(),
                 source.corte());
     }
 
-    public static List<GradeDto> mapFrom(List<Grade> sources) {
-        return sources.parallelStream().map(e -> mapFrom(e)).toList();
+    public static List<GradeDto> mapFrom(List<Grade> sources){
+        return sources.parallelStream().map(e-> mapFrom(e)).toList();
     }
 }

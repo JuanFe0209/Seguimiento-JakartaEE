@@ -12,11 +12,11 @@ public class SubjectMapper {
                 source.getTeacher());
     }
     public static Subject mapFrom(SubjectDto source){
-        return new Subject(source.id_Subjects(),
-                source.name(),
+        return new Subject(source.subjectId(),
+                source.subjectName(),
                 source.teacher());
     }
-    public static List<SubjectDto> mapFrom(List<Subject> sources){
-        return sources.parallelStream().map(e->mapFrom(e)).toList();
+    public static List<SubjectDto> mapFrom(List<Subject> source) {
+        return source.parallelStream().map(e-> mapFrom(e)).toList();
     }
 }

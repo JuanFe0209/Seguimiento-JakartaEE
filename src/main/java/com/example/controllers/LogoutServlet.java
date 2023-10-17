@@ -1,7 +1,9 @@
 package com.example.controllers;
 
+import com.example.annotations.Login;
 import com.example.services.LoginService;
 import com.example.services.impl.LoginServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -14,6 +16,9 @@ import java.util.Optional;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
+    @Inject
+    @Login
+    LoginService auth;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {

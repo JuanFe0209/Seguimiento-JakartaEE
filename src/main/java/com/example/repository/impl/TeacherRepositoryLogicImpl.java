@@ -1,4 +1,4 @@
-package com.example.repository.impl;
+/* package com.example.repository.impl;
 
 import com.example.annotations.MysqlConn;
 import com.example.domain.exceptions.UniversityException;
@@ -41,3 +41,5 @@ public class TeacherRepositoryLogicImpl implements Repository<Teacher> {
         teachers.removeIf(e->e.getId_Teachers().equals(id));
     }
 }
+
+ */

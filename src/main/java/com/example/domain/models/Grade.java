@@ -14,6 +14,7 @@ public class Grade implements Serializable {
     private Long id_Grades;
     private Student student;
     private Subject subject;
+    private Double grade;
     private String corte;
 
 }

@@ -2,9 +2,9 @@ package com.example.controllers;
 
 import com.example.domain.models.Student;
 import com.example.mapping.dtos.StudentDto;
-import com.example.repository.impl.StudentRepositoryLogicImpl;
-import com.example.services.impl.StudentServiceImpl;
+import com.example.services.StudentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,10 +15,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-@WebServlet({"/students.json"})
+@WebServlet(value="/student.json")
 public class StudentJson extends HttpServlet {
-    public StudentRepositoryLogicImpl studentRepository;
-    public StudentServiceImpl service;
+
+    @Inject
+    private StudentService service;
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
             ServletException, IOException {

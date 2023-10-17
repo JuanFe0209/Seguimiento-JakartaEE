@@ -1,4 +1,5 @@
 package com.example.controllers;
+import com.example.annotations.Login;
 import com.example.services.LoginService;
 import com.example.services.TeacherService;
 import com.example.services.impl.LoginServiceImpl;
@@ -15,15 +16,15 @@ import java.util.Optional;
 
 import static java.lang.System.out;
 
-@WebServlet("/login")
+@WebServlet({"/login","/login.html","/index.html"})
 public class LoginServlet extends HttpServlet {
     final static String USERNAME = "admin";
     final static String PASSWORD = "12345";
-    @Inject
-    LoginService auth;
-    @Inject
-    TeacherService service;
 
+    @Inject
+    @Login
+    private LoginService auth;
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         String username = req.getParameter("username");

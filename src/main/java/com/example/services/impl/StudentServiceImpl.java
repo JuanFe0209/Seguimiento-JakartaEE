@@ -5,31 +5,33 @@ import com.example.repository.Repository;
 import com.example.services.StudentService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import lombok.NoArgsConstructor;
+import jakarta.inject.Named;
+
 import java.util.List;
-@NoArgsConstructor
+
 @ApplicationScoped
-public class StudentServiceimpl implements StudentService {
+public class StudentServiceImpl implements StudentService{
     @Inject
-    private Repository<StudentDto> studentRepository;
+    @Named("defaultRepository")
+    private Repository<StudentDto> repo;
 
     @Override
     public List<StudentDto> list() {
-        return studentRepository.list();
+        return repo.list();
     }
 
     @Override
     public StudentDto byId(Long id) {
-        return studentRepository.byId(id);
+        return repo.byId(id);
     }
 
     @Override
     public void update(StudentDto student) {
-        studentRepository.update(student);
+        repo.update(student);
     }
 
     @Override
     public void delete(Long id) {
-        studentRepository.delete(id);
+        repo.delete(id);
     }
 }

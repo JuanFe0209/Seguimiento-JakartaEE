@@ -1,6 +1,7 @@
 package com.example.controllers;
 import com.example.mapping.dtos.StudentDto;
-import com.example.services.impl.StudentServiceImpl;
+import com.example.services.StudentService;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +14,8 @@ import java.util.List;
 
 @WebServlet({"/students.xls", "/students.html", "/students"})
 public class StudentXLS extends HttpServlet {
-    StudentServiceImpl service;
+    @Inject
+    StudentService service;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {

@@ -6,10 +6,12 @@ import com.example.mapping.mapper.StudentMapper;
 import com.example.repository.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+@Named("jdbcRepository")
 @ApplicationScoped
 public class StudentRepositoryJdbcImpl implements Repository<StudentDto> {
 @Inject

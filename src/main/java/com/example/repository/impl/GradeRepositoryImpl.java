@@ -93,7 +93,7 @@ public class GradeRepositoryImpl implements Repository<GradeDto> {
     @Override
     public void update(GradeDto grades) {
         String sql;
-        if (grades.id_Grades() != null && grades.id_Grades() > 0) {
+        if (grades.gradesId() != null && grades.gradesId() > 0) {
             sql = "UPDATE grades SET id_students=?, id_subject=? , corte=?  WHERE id_grades=?";
         } else {
             sql = "INSERT INTO grades (id_students, id,subject, semester, corte) VALUES(?,?)";
@@ -103,8 +103,8 @@ public class GradeRepositoryImpl implements Repository<GradeDto> {
             stmt.setLong(2, grades.subject().getId_Subjects());
             stmt.setString(3, grades.corte());
 
-            if (grades.id_Grades() != null && grades.id_Grades() > 0) {
-                stmt.setLong(3, grades.id_Grades());
+            if (grades.gradesId() != null && grades.gradesId() > 0) {
+                stmt.setLong(3, grades.gradesId());
             }
             stmt.executeUpdate();
         } catch (SQLException e) {

@@ -72,17 +72,17 @@ public class SubjectRepositoryImpl implements Repository<SubjectDto> {
     @Override
     public void update(SubjectDto Subject) {
         String sql;
-        if (Subject.id_Subjects() != null && Subject.id_Subjects() > 0) {
+        if (Subject.subjectId() != null && Subject.subjectId() > 0) {
             sql = "UPDATE subjects SET name=?, id_teacher=? WHERE id_subject=?";
         } else {
             sql = "INSERT INTO subjects (name, id_teacher) VALUES(?,?)";
         }
         try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
-            stmt.setString(1, Subject.name());
+            stmt.setString(1, Subject.subjectName());
             stmt.setLong(2, Subject.teacher().getId_Teachers());
 
-            if (Subject.id_Subjects() != null && Subject.id_Subjects() > 0) {
-                stmt.setLong(3, Subject.id_Subjects());
+            if (Subject.subjectId() != null && Subject.subjectId() > 0) {
+                stmt.setLong(3, Subject.subjectId());
             }
             stmt.executeUpdate();
         } catch (SQLException e) {
